@@ -3,18 +3,88 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title></title>
+    <title>dropdown-menu</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="styles/dest/reset.css">
     <link rel="stylesheet" href="styles/dest/main.css">
 </head>
 <body>
 
+<ul>
+    <li class="menu-item menu-item_horizontal">
+        <span class="menu-item__caption">Menu</span>
+        <div class="dropdown">
+            <ul class="menu-group">
+                <li class="menu-group__caption">Group 1</li>
+                <li class="menu-item">
+                    <span class="menu-item__caption">item 1</span>
+                </li>
+                <li class="menu-item menu-item_disabled">
+                    <span class="menu-item__caption">item 2</span>
+                </li>
+                <li class="menu-item menu-item_active">
+                    <span class="menu-item__caption">item 3</span>
+                </li>
+                <li class="menu-item menu-item_link">
+                    <a class="menu-item__caption" href="mail.ru" target="_blank">item 4</a>
+                </li>
+                <li class="menu-item menu-item_nested-menu">
+                    <span class="menu-item__caption">item 5</span>
+                    <div class="dropdown dropdown_position_right">
+                        <ul class="menu-group">
+                            <li class="menu-group__caption">Group 2</li>
+                            <li class="menu-item">
+                                <span class="menu-item__caption">item 1</span>
+                            </li>
+                            <li class="menu-item menu-item_disabled">
+                                <span class="menu-item__caption">item 2</span>
+                            </li>
+                            <li class="menu-item menu-item_active">
+                                <span class="menu-item__caption">item 3</span>
+                            </li>
+                            <li class="menu-item menu-item_link">
+                                <a class="menu-item__caption" href="mail.ru" target="_blank">item 4</a>
+                            </li>
+                        </ul>
+                        <ul class="menu-group">
+                            <li class="menu-group__caption">Group 2</li>
+                            <li class="menu-item">
+                                <span class="menu-item__caption">item 1</span>
+                            </li>
+                            <li class="menu-item menu-item_disabled">
+                                <span class="menu-item__caption">item 2</span>
+                            </li>
+                            <li class="menu-item menu-item_active">
+                                <span class="menu-item__caption">item 3</span>
+                            </li>
+                            <li class="menu-item menu-item_link">
+                                <a class="menu-item__caption" href="mail.ru" target="_blank">item 4</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
 
+            </ul>
+            <ul class="menu-group">
+                <li class="menu-group__caption">Group 2</li>
+                <li class="menu-item">
+                    <span class="menu-item__caption">item 1</span>
+                </li>
+                <li class="menu-item menu-item_disabled">
+                    <span class="menu-item__caption">item 2</span>
+                </li>
+                <li class="menu-item menu-item_active">
+                    <span class="menu-item__caption">item 3</span>
+                </li>
+                <li class="menu-item menu-item_link">
+                    <a class="menu-item__caption" href="mail.ru" target="_blank">item 4</a>
+                </li>
+            </ul>
+        </div>
+    </li>
+</ul>
 
-<script src="scripts/vendor/es5-shim.min.js"></script>
 <script data-main="scripts/main" src="scripts/vendor/require.js"></script>
 </body>
 </html>

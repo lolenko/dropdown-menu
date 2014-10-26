@@ -1,0 +1,76 @@
+body {
+  padding: 50px;
+  font-family: "Trebuchet MS", Verdana, sans-serif;
+  font-size: 14px;
+}
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: rgba(255, 255, 255, 0.95);
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  border-radius: 2px;
+  cursor: default;
+}
+.dropdown_position_right {
+  top: 0;
+  left: 100%;
+}
+.menu-group {
+  padding: 5px 0;
+  border-bottom: 2px solid #bbb;
+}
+.menu-group:last-child {
+  border-bottom: none;
+}
+.menu-group__caption {
+  color: #bbb;
+  padding: 0 15px;
+  margin: 0 0 5px;
+}
+.menu-item {
+  padding: 5px 15px;
+  position: relative;
+  white-space: nowrap;
+  color: #000;
+  cursor: pointer;
+}
+.menu-item__caption {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.menu-item_active .menu-item__caption {
+  font-weight: bold;
+}
+.menu-item:hover {
+  color: #fff;
+  background: #666;
+}
+.menu-item[disabled],
+.menu-item_disabled,
+.menu-item_disabled:hover {
+  color: #bbb;
+  cursor: default;
+  background: none;
+}
+.menu-item_link {
+  font-style: italic;
+}
+.menu-item_horizontal {
+  display: inline-block;
+}
+.menu-item_nested-menu {
+  padding-right: 45px;
+}
+.menu-item_nested-menu:after {
+  content: '►';
+  width: 14px;
+  height: 14px;
+  margin: auto 0;
+  line-height: 14px;
+  position: absolute;
+  right: 15px;
+  font-size: .8em;
+  text-align: right;
+}
