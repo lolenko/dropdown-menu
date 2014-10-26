@@ -86,4 +86,31 @@ body {
       text-align: right;
     }
   }
+
+  & &_pending {
+    animation: menu-item-pending .25s;
+  }
+}
+
+@keyframes menu-item-pending {
+  0% {
+    color: #000;
+    background: #fff;
+  }
+  33% {
+    color: #fff;
+    background: #666;
+  }
+  50% {
+    color: #000;
+    background: #fff;
+  }
+  66% {
+    color: #fff;
+    background: #666;
+  }
+  0% {
+    color: #000;
+    background: #fff;
+  }
 }

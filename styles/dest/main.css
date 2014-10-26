@@ -74,3 +74,74 @@ body {
   font-size: .8em;
   text-align: right;
 }
+.menu-item .menu-item_pending {
+  -webkit-animation: menu-item-pending 0.25s;
+       -o-animation: menu-item-pending 0.25s;
+          animation: menu-item-pending 0.25s;
+}
+@-webkit-keyframes menu-item-pending {
+  0% {
+    color: #000;
+    background: #fff;
+  }
+  33% {
+    color: #fff;
+    background: #666;
+  }
+  50% {
+    color: #000;
+    background: #fff;
+  }
+  66% {
+    color: #fff;
+    background: #666;
+  }
+  0% {
+    color: #000;
+    background: #fff;
+  }
+}
+@-o-keyframes menu-item-pending {
+  0% {
+    color: #000;
+    background: #fff;
+  }
+  33% {
+    color: #fff;
+    background: #666;
+  }
+  50% {
+    color: #000;
+    background: #fff;
+  }
+  66% {
+    color: #fff;
+    background: #666;
+  }
+  0% {
+    color: #000;
+    background: #fff;
+  }
+}
+@keyframes menu-item-pending {
+  0% {
+    color: #000;
+    background: #fff;
+  }
+  33% {
+    color: #fff;
+    background: #666;
+  }
+  50% {
+    color: #000;
+    background: #fff;
+  }
+  66% {
+    color: #fff;
+    background: #666;
+  }
+  0% {
+    color: #000;
+    background: #fff;
+  }
+}
