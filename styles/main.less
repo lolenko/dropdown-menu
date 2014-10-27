@@ -53,7 +53,7 @@ body {
     font-weight: bold;
   }
 
-  &:hover {
+  &:hover, &:focus, &_focused {
     color: #fff;
     background: #666;
   }
@@ -74,6 +74,7 @@ body {
 
   &_nested-menu {
     padding-right: 45px;
+
     &:after {
       content: '►';
       width: 14px;
@@ -87,7 +88,8 @@ body {
     }
   }
 
-  & &_pending {
+  // Утежелил селектор, иначе стили анимации не перекрывают &:hover
+  &.menu-item_pending {
     animation: menu-item-pending .25s;
   }
 }

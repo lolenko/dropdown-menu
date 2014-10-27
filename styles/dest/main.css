@@ -43,7 +43,9 @@ body {
 .menu-item_active .menu-item__caption {
   font-weight: bold;
 }
-.menu-item:hover {
+.menu-item:hover,
+.menu-item:focus,
+.menu-item_focused {
   color: #fff;
   background: #666;
 }
@@ -74,7 +76,7 @@ body {
   font-size: .8em;
   text-align: right;
 }
-.menu-item .menu-item_pending {
+.menu-item.menu-item_pending {
   -webkit-animation: menu-item-pending 0.25s;
        -o-animation: menu-item-pending 0.25s;
           animation: menu-item-pending 0.25s;
