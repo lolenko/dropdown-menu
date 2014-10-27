@@ -17,6 +17,9 @@ body {
   top: 0;
   left: 100%;
 }
+.dropdown_expanded {
+  display: block;
+}
 .menu-group {
   padding: 5px 0;
   border-bottom: 2px solid #bbb;
@@ -28,6 +31,15 @@ body {
   color: #bbb;
   padding: 0 15px;
   margin: 0 0 5px;
+}
+.menu_orientation_horizontal {
+  display: inline-block;
+  white-space: nowrap;
+  font-size: 0;
+}
+.menu_orientation_horizontal .menu__item {
+  display: inline-block;
+  font-size: 14px;
 }
 .menu-item {
   padding: 5px 15px;
@@ -58,9 +70,6 @@ body {
 }
 .menu-item_link {
   font-style: italic;
-}
-.menu-item_horizontal {
-  display: inline-block;
 }
 .menu-item_nested-menu {
   padding-right: 45px;

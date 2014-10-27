@@ -93,6 +93,10 @@ define(['utils', 'EventEmitter'], function(utils, EventEmitter) {
         return this.focus(false);
     };
 
+    MenuItem.prototype.setCommand = function(command) {
+        this.command = command;
+    };
+
     return MenuItem;
 
 });
