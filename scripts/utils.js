@@ -28,9 +28,21 @@ define(function() {
         return arguments[0];
     };
 
+    var tmpl = function(tpl, data) {
+        var re = /<%([^%>]+)?%>/g;
+        var match;
+        while(match = re.exec(tpl)) {
+            tpl = tpl.replace(match[0], data[match[1]])
+        }
+        var div = document.createElement('div');
+        div.innerHTML = tpl;
+        return div.children[0];
+    };
+
     return {
         inherits: inherits,
-        extend: extend
+        extend: extend,
+        tmpl: tmpl
     };
 
 });

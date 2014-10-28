@@ -6,12 +6,12 @@ require(['Menu', 'MenuItem'], function(Menu, MenuItem) {
 
     'use strict';
 
-    Menu.create({
+    var menu = Menu.create({
         type: 'menu',
         orientation: 'horizontal',
         items: [
             {
-                type: 'submenu',
+                type: 'menu',
                 caption: 'Menu 1',
                 items: [
                     {
@@ -25,7 +25,7 @@ require(['Menu', 'MenuItem'], function(Menu, MenuItem) {
                         value: 'item2'
                     },
                     {
-                        type: 'submenu',
+                        type: 'menu',
                         caption: 'submenu 1',
                         items: [
                             {
@@ -50,8 +50,14 @@ require(['Menu', 'MenuItem'], function(Menu, MenuItem) {
         ]
     });
 
+    console.log(menu);
+    document.getElementById('menu').appendChild(menu.rootEl);
+
+/*
+    new Menu(document.querySelector('.menu_root'));
     [].forEach.call(document.querySelectorAll('.menu-item'), function(item) {
         new MenuItem(item);
     });
+*/
 
 });

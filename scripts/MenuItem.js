@@ -22,18 +22,22 @@ define(['utils', 'EventEmitter'], function(utils, EventEmitter) {
         PENDING: 'menu-item-pending'
     };
 
-    var MenuItem = function(rootEl, params) {
+    var MenuItem = function(params) {
         params = utils.extend({
             command: (function() { console.log('execute ', this); }).bind(this),
-            activateOn: 'click'
+            activateOn: 'click',
+            caption: 'unnamed',
+            disabled: 'false'
         }, params);
-        this.rootEl = rootEl;
+
+        this.rootEl = utils.tmpl(MenuItem.TEMPLATE, {caption: params.caption});
         this.command = params.command;
-        this.disabled = rootEl.classList.contains(CSS_MODIFIERS.DISABLED);
+        this.disabled = false;
         this.isPending = false;
         this.isFocused = false;
-        rootEl.addEventListener(params.activateOn, this.execute.bind(this), false);
-        rootEl.addEventListener('webkitAnimationEnd', (function(e) {
+        params.disabled && this.disable();
+        this.rootEl.addEventListener(params.activateOn, this.execute.bind(this), false);
+        this.rootEl.addEventListener('webkitAnimationEnd', (function(e) {
             e.stopPropagation();
             if (e.animationName === CSS_ANIMATIONS.PENDING) {
                 this.emit(EVENTS.PENDING_END, e);
@@ -46,6 +50,9 @@ define(['utils', 'EventEmitter'], function(utils, EventEmitter) {
     MenuItem.CSS_MODIFIERS = CSS_MODIFIERS;
     MenuItem.EVENTS = EVENTS;
     MenuItem.CSS_ANIMATIONS = CSS_ANIMATIONS;
+    MenuItem.TEMPLATE = '<div class="menu-item"> \
+                          <span class="menu-item__caption"><%caption%></span> \
+                         </div>';
 
     MenuItem.prototype.execute = function(e) {
         e && e.stopPropagation && e.stopPropagation();

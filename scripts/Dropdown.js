@@ -11,20 +11,24 @@ define(['utils', 'EventEmitter'], function(utils, EventEmitter) {
         HIDE: 'hide'
     };
 
-    var Dropdown = function(rootEl, params) {
-        this.rootEl = rootEl;
+    var Dropdown = function(items, params) {
+        this.rootEl = utils.tmpl(Dropdown.TEMPLATE);
+        items.forEach((function(item) {
+            this.rootEl.appendChild(item.rootEl);
+        }).bind(this));
         params = utils.extend({
             relatedTarget: null,
             offset: 0,
             position: 'auto'
         }, params);
-        this.isExpanded = rootEl.classList.contains(CSS_MODIFIERS.EXPANDED);
+        this.isExpanded = false;
     };
 
     utils.inherits(Dropdown, EventEmitter);
 
     Dropdown.CSS_MODIFIERS = CSS_MODIFIERS;
     Dropdown.EVENTS = EVENTS;
+    Dropdown.TEMPLATE = '<div class="dropdown"></div>'
 
     Dropdown.prototype.expand = function() {
         this.isExpanded = (arguments[0] !== false);
