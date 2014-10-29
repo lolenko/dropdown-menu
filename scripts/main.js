@@ -11,7 +11,7 @@ require(['Menu', 'MenuItem'], function(Menu, MenuItem) {
         orientation: 'horizontal',
         items: [
             {
-                type: 'menu',
+                type: 'submenu',
                 caption: 'Menu 1',
                 items: [
                     {
@@ -25,8 +25,47 @@ require(['Menu', 'MenuItem'], function(Menu, MenuItem) {
                         value: 'item2'
                     },
                     {
-                        type: 'menu',
+                        type: 'submenu',
                         caption: 'submenu 1',
+                        dropdownPosition: 'horizontal',
+                        items: [
+                            {
+                                type: 'item',
+                                caption: 'item 1',
+                                value: 'item1'
+                            },
+                            {
+                                type: 'item',
+                                caption: 'item 2',
+                                value: 'item2'
+                            }
+                        ]
+                    },
+                    {
+                        type: 'item',
+                        caption: 'item 4',
+                        value: 'item4'
+                    }
+                ]
+            },
+            {
+                type: 'submenu',
+                caption: 'Menu 2',
+                items: [
+                    {
+                        type: 'item',
+                        caption: 'item 1',
+                        value: 'item1'
+                    },
+                    {
+                        type: 'item',
+                        caption: 'item 2',
+                        value: 'item2'
+                    },
+                    {
+                        type: 'submenu',
+                        caption: 'submenu 1',
+                        dropdownPosition: 'horizontal',
                         items: [
                             {
                                 type: 'item',

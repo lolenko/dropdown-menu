@@ -27,7 +27,7 @@ define(['utils', 'EventEmitter'], function(utils, EventEmitter) {
             command: (function() { console.log('execute ', this); }).bind(this),
             activateOn: 'click',
             caption: 'unnamed',
-            disabled: 'false'
+            disabled: false
         }, params);
 
         this.rootEl = utils.tmpl(MenuItem.TEMPLATE, {caption: params.caption});
@@ -61,6 +61,7 @@ define(['utils', 'EventEmitter'], function(utils, EventEmitter) {
         }
         return this.pending().then((function() {
             this.emit(EVENTS.EXECUTE);
+            console.log(this.command);
             return this.command();
         }).bind(this));
     };

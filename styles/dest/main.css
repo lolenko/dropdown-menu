@@ -11,16 +11,24 @@ body {
   font-size: 14px;
 }
 .menu {
-  position: relative;
-}
-.menu_orientation_horizontal {
-  display: inline-block;
   white-space: nowrap;
   font-size: 0;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #bedfff), to(#5ba0ff));
+  background: -webkit-linear-gradient(top, #bedfff 0, #5ba0ff 100%);
+  background: -o-linear-gradient(top, #bedfff 0, #5ba0ff 100%);
+  background: linear-gradient(to bottom, #bedfff 0, #5ba0ff 100%);
 }
-.menu_orientation_horizontal > .menu-item {
+.menu__item {
   display: inline-block;
   font-size: 14px;
+  white-space: normal;
+}
+.menu_dropdown {
+  position: relative;
+  background: none;
+}
+.menu_dropdown .menu__item {
+  display: block;
 }
 .dropdown {
   position: absolute;
@@ -31,9 +39,10 @@ body {
           box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
   border-radius: 0 0 3px 3px;
   cursor: default;
+  display: none;
 }
 .dropdown_position_right {
-  top: -5px;
+  top: 0;
   left: 100%;
   border-radius: 0 3px 3px 3px;
 }
@@ -70,7 +79,7 @@ body {
 .menu-item:focus,
 .menu-item_focused {
   color: #fff;
-  background: #666;
+  background: #3a35ff;
 }
 .menu-item[disabled],
 .menu-item_disabled,
@@ -104,66 +113,66 @@ body {
 @-webkit-keyframes menu-item-pending {
   0% {
     color: #000;
-    background: #fff;
+    background: rgba(255, 255, 255, 0);
   }
   33% {
     color: #fff;
-    background: #666;
+    background: #3a35ff;
   }
   50% {
     color: #000;
-    background: #fff;
+    background: rgba(255, 255, 255, 0);
   }
   66% {
     color: #fff;
-    background: #666;
+    background: #3a35ff;
   }
   100% {
     color: #000;
-    background: #fff;
+    background: rgba(255, 255, 255, 0);
   }
 }
 @-o-keyframes menu-item-pending {
   0% {
     color: #000;
-    background: #fff;
+    background: rgba(255, 255, 255, 0);
   }
   33% {
     color: #fff;
-    background: #666;
+    background: #3a35ff;
   }
   50% {
     color: #000;
-    background: #fff;
+    background: rgba(255, 255, 255, 0);
   }
   66% {
     color: #fff;
-    background: #666;
+    background: #3a35ff;
   }
   100% {
     color: #000;
-    background: #fff;
+    background: rgba(255, 255, 255, 0);
   }
 }
 @keyframes menu-item-pending {
   0% {
     color: #000;
-    background: #fff;
+    background: rgba(255, 255, 255, 0);
   }
   33% {
     color: #fff;
-    background: #666;
+    background: #3a35ff;
   }
   50% {
     color: #000;
-    background: #fff;
+    background: rgba(255, 255, 255, 0);
   }
   66% {
     color: #fff;
-    background: #666;
+    background: #3a35ff;
   }
   100% {
     color: #000;
-    background: #fff;
+    background: rgba(255, 255, 255, 0);
   }
 }

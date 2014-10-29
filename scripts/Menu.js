@@ -1,17 +1,11 @@
-define(['utils', 'EventEmitter', 'MenuItem', 'Dropdown'], function(utils, EventEmitter, MenuItem, Dropdown) {
+define(['utils', 'EventEmitter', 'MenuItem', 'Dropdown', 'DropdownMenu'], function(utils, EventEmitter, MenuItem, Dropdown, DropdownMenu) {
 
     'use strict';
 
     var Menu = function(items, params) {
-        this.rootEl = utils.tmpl(Menu.TEMPLATE, {caption: params.caption});
-        this.button = new MenuItem({
-            caption: params.caption
-        });
-        this.dropdown = new Dropdown(items, {relatedTarget: this.button.rootEl});
-        this.rootEl.appendChild(this.button.rootEl);
-        this.rootEl.appendChild(this.dropdown.rootEl);
-        console.log(this.rootEl);
+        this.rootEl = utils.tmpl(Menu.TEMPLATE);
         this.items = items;
+        this.each(this.append.bind(this));
     };
 
     utils.inherits(Menu, EventEmitter);
@@ -19,6 +13,7 @@ define(['utils', 'EventEmitter', 'MenuItem', 'Dropdown'], function(utils, EventE
     Menu.create = function(params) {
         var type = params.type;
         delete params.type;
+        var item;
 
         switch (type) {
             case 'menu':
@@ -28,14 +23,26 @@ define(['utils', 'EventEmitter', 'MenuItem', 'Dropdown'], function(utils, EventE
                 itemsParams.forEach(function(item) {
                     items.push(Menu.create(item));
                 });
-                return new Menu(items, params);
+                item =  new Menu(items, params);
+                break;
+            case 'submenu':
+                var itemsParams = params.items;
+                delete params.items;
+                var items = [];
+                itemsParams.forEach(function(item) {
+                    items.push(Menu.create(item));
+                });
+                item = new DropdownMenu(items, params);
+                item.rootEl.classList.add('menu__item');
                 break;
             case 'item':
-                return new MenuItem(params);
+                item = new MenuItem(params);
+                item.rootEl.classList.add('menu__item');
                 break;
             default:
                 break;
         }
+        return item;
     };
 
     Menu.TEMPLATE = '<div class="menu"></div>';
@@ -50,6 +57,12 @@ define(['utils', 'EventEmitter', 'MenuItem', 'Dropdown'], function(utils, EventE
                 item.close();
             }
         });
+    };
+
+    Menu.prototype.append = function(item) {
+        this.items.push(item);
+        this.rootEl.appendChild(item.rootEl);
+        return this;
     };
 
 
