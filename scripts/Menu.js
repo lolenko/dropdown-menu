@@ -1,10 +1,12 @@
-define(['utils', 'EventEmitter', 'MenuItem', 'Dropdown', 'DropdownMenu'], function(utils, EventEmitter, MenuItem, Dropdown, DropdownMenu) {
+define(['exports', 'utils', 'EventEmitter', 'MenuItem', 'Submenu'], function(exports, utils, EventEmitter, MenuItem, Submenu) {
 
     'use strict';
 
     var Menu = function(items, params) {
         this.rootEl = utils.tmpl(Menu.TEMPLATE);
         this.items = [];
+        this.isFocused = false;
+        this.focusedItem = null;
         items.forEach(this.append.bind(this));
     };
 
@@ -32,7 +34,7 @@ define(['utils', 'EventEmitter', 'MenuItem', 'Dropdown', 'DropdownMenu'], functi
                 itemsParams.forEach(function(item) {
                     items.push(Menu.create(item));
                 });
-                item = new DropdownMenu(items, params);
+                item = new Submenu.Submenu(items, params);
                 item.rootEl.classList.add('menu__item');
                 break;
             case 'item':
@@ -51,23 +53,20 @@ define(['utils', 'EventEmitter', 'MenuItem', 'Dropdown', 'DropdownMenu'], functi
         this.items.forEach(cb);
     };
 
-    Menu.prototype.close = function() {
-        this.each(function(item) {
-            if (item instanceof DropdownMenu) {
-                item.close();
-            }
-        });
-    };
 
     Menu.prototype.append = function(item) {
         this.items.push(item);
         this.rootEl.appendChild(item.rootEl);
         item.setParentMenu(this);
+        item.on('blur', (function() {
+            this.focusedItem = null;
+        }).bind(this));
+        item.on('focus', (function() {
+            this.focusedItem = item;
+        }).bind(this));
         return this;
     };
 
-
-
-    return Menu;
+    exports.Menu = Menu;
 
 });

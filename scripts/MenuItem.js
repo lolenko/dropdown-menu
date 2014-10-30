@@ -23,29 +23,24 @@ define(['utils', 'EventEmitter'], function(utils, EventEmitter) {
     };
 
     var MenuItem = function(params) {
-        params = utils.extend({
+        this.params = utils.extend({
             command: function() { console.log('command not defined'); },
             activateOn: 'click',
             caption: 'unnamed',
             disabled: false
         }, params);
 
-        this.rootEl = utils.tmpl(MenuItem.TEMPLATE, {caption: params.caption});
-        this.command = params.command;
-        this.parentMenu = null;
         this.disabled = false;
         this.isPending = false;
         this.isFocused = false;
         params.disabled && this.disable();
-        this.rootEl.addEventListener(params.activateOn, this.execute.bind(this), false);
-        this.rootEl.addEventListener('webkitAnimationEnd', (function(e) {
-            e.stopPropagation();
-            if (e.animationName === CSS_ANIMATIONS.PENDING) {
-                this.emit(EVENTS.PENDING_END, e);
-            }
-        }).bind(this), false);
-        this.rootEl.addEventListener('mouseenter', this.focus.bind(this), false);
-        this.rootEl.addEventListener('mouseleave', this.blur.bind(this), false);
+        this.command = params.command;
+
+        this.render();
+
+        this.parentMenu = null;
+        this.prevItem = null;
+        this.nextItem = null;
     };
 
     utils.inherits(MenuItem, EventEmitter);
@@ -56,6 +51,27 @@ define(['utils', 'EventEmitter'], function(utils, EventEmitter) {
     MenuItem.TEMPLATE = '<div class="menu-item"> \
                           <span class="menu-item__caption"><%caption%></span> \
                          </div>';
+
+    MenuItem.prototype.render = function() {
+        this.rootEl = utils.tmpl(MenuItem.TEMPLATE, {caption: this.params.caption});
+        this.rootEl.addEventListener(this.params.activateOn, this.execute.bind(this), false);
+        this.rootEl.addEventListener('webkitAnimationEnd', (function(e) {
+            e.stopPropagation();
+            if (e.animationName === CSS_ANIMATIONS.PENDING) {
+                this.emit(EVENTS.PENDING_END, e);
+            }
+        }).bind(this), false);
+        //this.rootEl.addEventListener('mouseenter', this.focus.bind(this), false);
+        //this.rootEl.addEventListener('mouseleave', this.blur.bind(this), false);
+        this.rootEl.addEventListener('mouseover', (function(e) {
+            e.stopPropagation();
+            this.focus();
+        }).bind(this), false);
+        this.rootEl.addEventListener('mouseout', (function(e) {
+            e.stopPropagation();
+            this.blur();
+        }).bind(this), false);
+    };
 
     MenuItem.prototype.execute = function(e) {
         e && e.stopPropagation && e.stopPropagation();

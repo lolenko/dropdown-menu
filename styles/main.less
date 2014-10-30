@@ -90,11 +90,11 @@ body {
     background: #3a35ff;
   }
 
-  &[disabled], &_disabled, &_disabled:hover {
-    color: #bbb;
-    cursor: default;
-    background: none;
-  }
+//  &[disabled], &_disabled, &_disabled:hover {
+//    color: #bbb;
+//    cursor: default;
+//    background: none;
+//  }
 
   &_link {
     font-style: italic;
@@ -116,8 +116,7 @@ body {
     }
   }
 
-  // Утежелил селектор, иначе стили анимации не перекрывают &:hover
-  &.menu-item_pending {
+  &_pending {
     animation: menu-item-pending .25s;
   }
 }

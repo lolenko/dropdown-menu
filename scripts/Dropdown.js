@@ -17,7 +17,7 @@ define(['utils', 'EventEmitter'], function(utils, EventEmitter) {
             relatedTarget: null,
             offset: 0,
             position: 'auto'
-        }, params);
+        }, params || {});
         this.isExpanded = false;
         this.position();
     };

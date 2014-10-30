@@ -6,7 +6,7 @@ require(['Menu', 'MenuItem'], function(Menu, MenuItem) {
 
     'use strict';
 
-    var menu = Menu.create({
+    var menu = Menu.Menu.create({
         type: 'menu',
         orientation: 'horizontal',
         items: [

@@ -79,13 +79,6 @@ body {
   color: #fff;
   background: #3a35ff;
 }
-.menu-item[disabled],
-.menu-item_disabled,
-.menu-item_disabled:hover {
-  color: #bbb;
-  cursor: default;
-  background: none;
-}
 .menu-item_link {
   font-style: italic;
 }
@@ -103,7 +96,7 @@ body {
   font-size: .8em;
   text-align: right;
 }
-.menu-item.menu-item_pending {
+.menu-item_pending {
   -webkit-animation: menu-item-pending 0.25s;
        -o-animation: menu-item-pending 0.25s;
           animation: menu-item-pending 0.25s;
