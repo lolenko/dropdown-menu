@@ -4,8 +4,8 @@ define(['utils', 'EventEmitter', 'MenuItem', 'Dropdown', 'DropdownMenu'], functi
 
     var Menu = function(items, params) {
         this.rootEl = utils.tmpl(Menu.TEMPLATE);
-        this.items = items;
-        this.each(this.append.bind(this));
+        this.items = [];
+        items.forEach(this.append.bind(this));
     };
 
     utils.inherits(Menu, EventEmitter);
@@ -53,7 +53,7 @@ define(['utils', 'EventEmitter', 'MenuItem', 'Dropdown', 'DropdownMenu'], functi
 
     Menu.prototype.close = function() {
         this.each(function(item) {
-            if (item instanceof Menu) {
+            if (item instanceof DropdownMenu) {
                 item.close();
             }
         });
@@ -62,6 +62,7 @@ define(['utils', 'EventEmitter', 'MenuItem', 'Dropdown', 'DropdownMenu'], functi
     Menu.prototype.append = function(item) {
         this.items.push(item);
         this.rootEl.appendChild(item.rootEl);
+        item.setParentMenu(this);
         return this;
     };
 

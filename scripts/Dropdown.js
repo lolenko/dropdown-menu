@@ -11,11 +11,8 @@ define(['utils', 'EventEmitter'], function(utils, EventEmitter) {
         HIDE: 'hide'
     };
 
-    var Dropdown = function(items, params) {
+    var Dropdown = function(params) {
         this.rootEl = utils.tmpl(Dropdown.TEMPLATE);
-        items.forEach((function(item) {
-            this.rootEl.appendChild(item.rootEl);
-        }).bind(this));
         this.params = utils.extend({
             relatedTarget: null,
             offset: 0,
@@ -39,7 +36,7 @@ define(['utils', 'EventEmitter'], function(utils, EventEmitter) {
         return this;
     };
 
-    Dropdown.prototype.hide = function() {
+    Dropdown.prototype.close = function() {
         this.expand(false);
     };
 
@@ -48,6 +45,10 @@ define(['utils', 'EventEmitter'], function(utils, EventEmitter) {
         if (this.params.position === 'horizontal') {
             this.rootEl.classList.add('dropdown_position_right');
         }
+    };
+
+    Dropdown.prototype.append = function(item) {
+        this.rootEl.appendChild(item.rootEl);
     };
 
     return Dropdown;

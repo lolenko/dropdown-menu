@@ -24,7 +24,7 @@ define(['utils', 'EventEmitter'], function(utils, EventEmitter) {
 
     var MenuItem = function(params) {
         params = utils.extend({
-            command: (function() { console.log('execute ', this); }).bind(this),
+            command: function() { console.log('command not defined'); },
             activateOn: 'click',
             caption: 'unnamed',
             disabled: false
@@ -32,6 +32,7 @@ define(['utils', 'EventEmitter'], function(utils, EventEmitter) {
 
         this.rootEl = utils.tmpl(MenuItem.TEMPLATE, {caption: params.caption});
         this.command = params.command;
+        this.parentMenu = null;
         this.disabled = false;
         this.isPending = false;
         this.isFocused = false;
@@ -43,6 +44,8 @@ define(['utils', 'EventEmitter'], function(utils, EventEmitter) {
                 this.emit(EVENTS.PENDING_END, e);
             }
         }).bind(this), false);
+        this.rootEl.addEventListener('mouseenter', this.focus.bind(this), false);
+        this.rootEl.addEventListener('mouseleave', this.blur.bind(this), false);
     };
 
     utils.inherits(MenuItem, EventEmitter);
@@ -61,7 +64,6 @@ define(['utils', 'EventEmitter'], function(utils, EventEmitter) {
         }
         return this.pending().then((function() {
             this.emit(EVENTS.EXECUTE);
-            console.log(this.command);
             return this.command();
         }).bind(this));
     };
@@ -92,7 +94,7 @@ define(['utils', 'EventEmitter'], function(utils, EventEmitter) {
 
     MenuItem.prototype.focus = function() {
         this.isFocused = (arguments[0] !== false);
-        this.rootEl.classList[this.isFocused ? 'remove' : 'add'](CSS_MODIFIERS.FOCUSED);
+        this.rootEl.classList[this.isFocused ? 'add' : 'remove'](CSS_MODIFIERS.FOCUSED);
         this.emit(this.isFocused ? EVENTS.FOCUS : EVENTS.BLUR);
         return this;
     };
@@ -103,6 +105,10 @@ define(['utils', 'EventEmitter'], function(utils, EventEmitter) {
 
     MenuItem.prototype.setCommand = function(command) {
         this.command = command;
+    };
+
+    MenuItem.prototype.setParentMenu = function(menu) {
+        this.parentMenu = menu;
     };
 
     return MenuItem;

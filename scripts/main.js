@@ -12,6 +12,7 @@ require(['Menu', 'MenuItem'], function(Menu, MenuItem) {
         items: [
             {
                 type: 'submenu',
+                activateOn: 'mouseenter',
                 caption: 'Menu 1',
                 items: [
                     {
@@ -26,6 +27,7 @@ require(['Menu', 'MenuItem'], function(Menu, MenuItem) {
                     },
                     {
                         type: 'submenu',
+                        activateOn: 'mouseenter',
                         caption: 'submenu 1',
                         dropdownPosition: 'horizontal',
                         items: [
@@ -50,6 +52,7 @@ require(['Menu', 'MenuItem'], function(Menu, MenuItem) {
             },
             {
                 type: 'submenu',
+                activateOn: 'mouseenter',
                 caption: 'Menu 2',
                 items: [
                     {
@@ -64,6 +67,7 @@ require(['Menu', 'MenuItem'], function(Menu, MenuItem) {
                     },
                     {
                         type: 'submenu',
+                        activateOn: 'mouseenter',
                         caption: 'submenu 1',
                         dropdownPosition: 'horizontal',
                         items: [

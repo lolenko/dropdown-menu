@@ -75,8 +75,6 @@ body {
 .menu-item_active .menu-item__caption {
   font-weight: bold;
 }
-.menu-item:hover,
-.menu-item:focus,
 .menu-item_focused {
   color: #fff;
   background: #3a35ff;

@@ -12,9 +12,10 @@ define(['utils', 'EventEmitter', 'MenuItem', 'Dropdown'], function(utils, EventE
             disabled: 'false'
         }, params);
         this.button = new MenuItem({
-            caption: params.caption
+            caption: params.caption,
+            activateOn: params.activateOn
         });
-        this.dropdown = new Dropdown(items, {
+        this.dropdown = new Dropdown({
             relatedTarget: this.button.rootEl,
             position: params.dropdownPosition,
             offset: params.dropdownOffset
@@ -23,8 +24,9 @@ define(['utils', 'EventEmitter', 'MenuItem', 'Dropdown'], function(utils, EventE
         this.dropdown.rootEl.classList.add('menu__dropdown');
         this.rootEl.appendChild(this.button.rootEl);
         this.rootEl.appendChild(this.dropdown.rootEl);
-        console.log(this.rootEl);
-        this.items = items;
+        this.items = [];
+        items.forEach(this.append.bind(this));
+        this.parentMenu = null;
     };
 
     utils.inherits(DropdownMenu, EventEmitter);
@@ -37,10 +39,22 @@ define(['utils', 'EventEmitter', 'MenuItem', 'Dropdown'], function(utils, EventE
 
     DropdownMenu.prototype.close = function() {
         this.each(function(item) {
-            if (item instanceof Menu) {
+            if (item instanceof DropdownMenu) {
                 item.close();
             }
         });
+    };
+
+    DropdownMenu.prototype.append = function(item) {
+        this.items.push(item);
+        this.dropdown.append(item);
+        item.setParentMenu(this);
+        return this;
+    };
+
+    DropdownMenu.prototype.setParentMenu = function(menu) {
+        this.parentMenu = menu;
+        this.button.on('blur', this.parentMenu.close.bind(this));
     };
 
     return DropdownMenu;
