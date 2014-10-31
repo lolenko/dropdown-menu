@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e7a1abf8-a4a6-44ca-94b6-da525d35a892" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/MenuManager.js" afterPath="$PROJECT_DIR$/scripts/MenuManager.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="dropdown-menu.iws" />
@@ -80,11 +80,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MenuManager.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MenuManager.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scripts/MenuManager.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5941727" vertical-offset="734" max-vertical-offset="1755">
+            <state vertical-scroll-proportion="0.0" vertical-offset="734" max-vertical-offset="1755">
               <caret line="87" column="32" selection-start-line="87" selection-start-column="32" selection-end-line="87" selection-end-column="32" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.016025642" vertical-offset="0" max-vertical-offset="936">
+              <caret line="1" column="13" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -373,7 +383,13 @@
       <option name="project" value="LOCAL" />
       <updated>1414751671811</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="по ескэйпу прячим всё">
+      <created>1414751821683</created>
+      <option name="number" value="00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1414751821683</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -440,21 +456,14 @@
     <MESSAGE value="поднахаркодил кей хэндлер" />
     <MESSAGE value="написал письмо ревизорам" />
     <MESSAGE value="выпадашки сделал чуть менее прозрачными" />
-    <option name="LAST_COMMIT_MESSAGE" value="выпадашки сделал чуть менее прозрачными" />
+    <MESSAGE value="по ескэйпу прячим всё" />
+    <option name="LAST_COMMIT_MESSAGE" value="по ескэйпу прячим всё" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/scripts/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="465" max-vertical-offset="1680">
-          <caret line="31" column="24" selection-start-line="31" selection-start-column="24" selection-end-line="31" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="195" max-vertical-offset="1440">
@@ -860,8 +869,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/MenuManager.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5941727" vertical-offset="734" max-vertical-offset="1755">
+        <state vertical-scroll-proportion="0.0" vertical-offset="734" max-vertical-offset="1755">
           <caret line="87" column="32" selection-start-line="87" selection-start-column="32" selection-end-line="87" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.016025642" vertical-offset="0" max-vertical-offset="936">
+          <caret line="1" column="13" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
           <folding />
         </state>
       </provider>
