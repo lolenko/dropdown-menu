@@ -71,7 +71,7 @@ define(['utils', 'Menu', 'Submenu', 'MenuItem'], function(utils, Menu, Submenu, 
     };
 
     MenuManager.prototype.handleKey = function(key) {
-        if (key = KEY.ESCAPE) {
+        if (key === KEY.ESCAPE) {
             this.clearFocus();
             return;
         }
