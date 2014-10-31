@@ -44,6 +44,180 @@ require(['MenuManager'], function(MenuManager) {
                         ]
                     },
                     {
+                        type: 'submenu',
+                        activateOn: 'mouseenter',
+                        caption: 'submenu 1',
+                        dropdownPosition: 'horizontal',
+                        items: [
+                            {
+                                type: 'item',
+                                caption: 'item 1',
+                                value: 'item1'
+                            },
+                            {
+                                type: 'item',
+                                caption: 'item 2',
+                                value: 'item2'
+                            }
+                        ]
+                    },
+                    {
+                        type: 'item',
+                        caption: 'item 4',
+                        value: 'item4'
+                    }
+                ]
+            },
+            {
+                type: 'submenu',
+                activateOn: 'mouseenter',
+                caption: 'Menu 1',
+                items: [
+                    {
+                        type: 'item',
+                        caption: 'item 1',
+                        value: 'item1'
+                    },
+                    {
+                        type: 'item',
+                        caption: 'item 2',
+                        value: 'item2'
+                    },
+                    {
+                        type: 'submenu',
+                        activateOn: 'mouseenter',
+                        caption: 'submenu 1',
+                        dropdownPosition: 'horizontal',
+                        items: [
+                            {
+                                type: 'item',
+                                caption: 'item 1',
+                                value: 'item1'
+                            },
+                            {
+                                type: 'submenu',
+                                activateOn: 'mouseenter',
+                                caption: 'submenu 1',
+                                dropdownPosition: 'horizontal',
+                                items: [
+                                    {
+                                        type: 'item',
+                                        caption: 'item 1',
+                                        value: 'item1'
+                                    },
+                                    {
+                                        type: 'item',
+                                        caption: 'item 2',
+                                        value: 'item2'
+                                    },
+                                    {
+                                        type: 'submenu',
+                                        activateOn: 'mouseenter',
+                                        caption: 'submenu 1',
+                                        dropdownPosition: 'horizontal',
+                                        items: [
+                                            {
+                                                type: 'item',
+                                                caption: 'item 1',
+                                                value: 'item1'
+                                            },
+                                            {
+                                                type: 'item',
+                                                caption: 'item 1',
+                                                value: 'item1'
+                                            },
+                                            {
+                                                type: 'item',
+                                                caption: 'item 1',
+                                                value: 'item1'
+                                            },
+                                            {
+                                                type: 'item',
+                                                caption: 'item 2',
+                                                value: 'item2'
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        type: 'item',
+                                        caption: 'item 4',
+                                        value: 'item4'
+                                    },
+                                    {
+                                        type: 'item',
+                                        caption: 'item 4',
+                                        value: 'item4'
+                                    },
+                                    {
+                                        type: 'item',
+                                        caption: 'item 4',
+                                        value: 'item4'
+                                    }
+                                ]
+                            },
+                            {
+                                type: 'item',
+                                caption: 'item 1',
+                                value: 'item1'
+                            },
+                            {
+                                type: 'item',
+                                caption: 'item 2',
+                                value: 'item2'
+                            }
+                        ]
+                    },
+                    {
+                        type: 'item',
+                        caption: 'item 4',
+                        value: 'item4'
+                    },
+                    {
+                        type: 'item',
+                        caption: 'item 4',
+                        value: 'item4'
+                    },
+                    {
+                        type: 'item',
+                        caption: 'item 4',
+                        value: 'item4'
+                    }
+                ]
+            },
+            {
+                type: 'submenu',
+                activateOn: 'mouseenter',
+                caption: 'Menu 1',
+                items: [
+                    {
+                        type: 'item',
+                        caption: 'item 1',
+                        value: 'item1'
+                    },
+                    {
+                        type: 'item',
+                        caption: 'item 2',
+                        value: 'item2'
+                    },
+                    {
+                        type: 'submenu',
+                        activateOn: 'mouseenter',
+                        caption: 'submenu 1',
+                        dropdownPosition: 'horizontal',
+                        items: [
+                            {
+                                type: 'item',
+                                caption: 'item 1',
+                                value: 'item1'
+                            },
+                            {
+                                type: 'item',
+                                caption: 'item 2',
+                                value: 'item2'
+                            }
+                        ]
+                    },
+                    {
                         type: 'item',
                         caption: 'item 4',
                         value: 'item4'
@@ -95,12 +269,5 @@ require(['MenuManager'], function(MenuManager) {
 
     console.log(menu);
     document.getElementById('menu').appendChild(menu.rootEl);
-
-/*
-    new Menu(document.querySelector('.menu_root'));
-    [].forEach.call(document.querySelectorAll('.menu-item'), function(item) {
-        new MenuItem(item);
-    });
-*/
 
 });

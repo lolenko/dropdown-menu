@@ -27,7 +27,8 @@ define(['utils', 'EventEmitter'], function(utils, EventEmitter) {
             command: function() { console.log('command not defined'); },
             activateOn: 'click',
             caption: 'unnamed',
-            disabled: false
+            disabled: false,
+            pending: true
         }, params);
 
         this.isDisabled = false;
@@ -68,10 +69,15 @@ define(['utils', 'EventEmitter'], function(utils, EventEmitter) {
         if (this.isDisabled || this.isPending) {
             return Promise.reject();
         }
-        return this.pending().then((function() {
+        if (this.params.pending) {
+            return this.pending().then((function() {
+                this.emit(EVENTS.EXECUTE);
+                return this.command();
+            }).bind(this));
+        } else {
             this.emit(EVENTS.EXECUTE);
             return this.command();
-        }).bind(this));
+        }
     };
 
     MenuItem.prototype.pending = function() {

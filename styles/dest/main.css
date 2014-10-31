@@ -10,6 +10,11 @@ body {
   font-family: "Trebuchet MS", Verdana, sans-serif;
   font-size: 14px;
 }
+.welcome {
+  background: rgba(255, 255, 255, 0.7);
+  padding: 25px;
+  white-space: pre;
+}
 .menu {
   white-space: nowrap;
   font-size: 0;

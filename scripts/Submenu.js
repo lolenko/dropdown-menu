@@ -5,7 +5,8 @@ define(['exports', 'utils', 'Menu', 'MenuItem', 'Dropdown'], function(exports, u
     var Submenu = function(items, params) {
         MenuItem.call(this, {
             activateOn: 'mouseenter',
-            caption: params.caption
+            caption: params.caption,
+            pending: false
         });
         this.menu = new Menu.Menu(items);
         this.dropdown = new Dropdown({
@@ -17,6 +18,7 @@ define(['exports', 'utils', 'Menu', 'MenuItem', 'Dropdown'], function(exports, u
         this.rootEl.appendChild(this.dropdown.rootEl);
         this.rootEl.classList.add('menu-item_submenu');
         this.menu.rootEl.classList.add('menu_dropdown');
+        this.rootEl.classList.add('menu-item_nested-menu');
         //this.setCommand(this.dropdown.expand.bind(this.dropdown));
     };
 
