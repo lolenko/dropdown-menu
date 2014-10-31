@@ -30,7 +30,7 @@ define(['utils', 'EventEmitter'], function(utils, EventEmitter) {
             disabled: false
         }, params);
 
-        this.disabled = false;
+        this.isDisabled = false;
         this.isPending = false;
         this.isFocused = false;
         params.disabled && this.disable();
@@ -61,21 +61,11 @@ define(['utils', 'EventEmitter'], function(utils, EventEmitter) {
                 this.emit(EVENTS.PENDING_END, e);
             }
         }).bind(this), false);
-        //this.rootEl.addEventListener('mouseenter', this.focus.bind(this), false);
-        //this.rootEl.addEventListener('mouseleave', this.blur.bind(this), false);
-        this.rootEl.addEventListener('mouseover', (function(e) {
-            e.stopPropagation();
-            this.focus();
-        }).bind(this), false);
-        this.rootEl.addEventListener('mouseout', (function(e) {
-            e.stopPropagation();
-            this.blur();
-        }).bind(this), false);
     };
 
     MenuItem.prototype.execute = function(e) {
         e && e.stopPropagation && e.stopPropagation();
-        if (this.disabled || this.isPending) {
+        if (this.isDisabled || this.isPending) {
             return Promise.reject();
         }
         return this.pending().then((function() {
@@ -98,9 +88,9 @@ define(['utils', 'EventEmitter'], function(utils, EventEmitter) {
     };
 
     MenuItem.prototype.enable = function() {
-        this.disabled = (arguments[0] === false);
-        this.rootEl.classList[this.disabled ? 'remove' : 'add'](CSS_MODIFIERS.DISABLED);
-        this.emit(this.disabled ? EVENTS.DISABLE : EVENTS.ENABLE);
+        this.isDisabled = (arguments[0] === false);
+        this.rootEl.classList[this.isDisabled ? 'remove' : 'add'](CSS_MODIFIERS.DISABLED);
+        this.emit(this.isDisabled ? EVENTS.DISABLE : EVENTS.ENABLE);
         return this;
     };
 

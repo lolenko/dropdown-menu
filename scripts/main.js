@@ -2,11 +2,11 @@ require.config({
     baseUrl: "scripts"
 });
 
-require(['Menu', 'MenuItem'], function(Menu, MenuItem) {
+require(['MenuManager'], function(MenuManager) {
 
     'use strict';
 
-    var menu = Menu.Menu.create({
+    var menu = MenuManager.create({
         type: 'menu',
         orientation: 'horizontal',
         items: [
